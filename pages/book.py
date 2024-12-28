@@ -8,6 +8,6 @@ with st.form("da-form"):
 	book = book.replace(" ", "+") # url encodinggggg i think
 	
 
-    submitted = st.form_submit_button("Submit")
+    submitted = st.form_submit_button("Submit")	
     if submitted:  
         st.redirect(f'https://google.com/search?q={book}+filetype:pdf') 
