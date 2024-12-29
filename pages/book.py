@@ -7,4 +7,4 @@ with st.form("da-form"):
 	
 	submitted = st.form_submit_button("Submit")	
 	if submitted:  
-		st.redirect(f'https://google.com/search?q={book}+filetype:pdf')
+		st.link_button('Continue', f'https://google.com/search?q={book}+filetype:pdf')
