@@ -6,6 +6,7 @@ import requests
 def search(inn):
 	inn = inn.replace(" ", "+")
 	json_data = requests.get(f"https://api.imdbapi.dev/search/titles?query={inn}")
+	json_data = json_data.text
 	data = json.loads(json_data)
 	for item in data["titles"]:
 		id = item["id"]
