@@ -18,7 +18,7 @@ def search(inn):
 
 		
 		st.html(f"""
-<img onclick="https://vidlink.pro/movie/{id}" src="{data2}" width=300>{title}</img>
+<a href="https://vidlink.pro/movie/{id}"><img src="{data2}" width=300>{title}</img></a>
   		(""")
 
 
