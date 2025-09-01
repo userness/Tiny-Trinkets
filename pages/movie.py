@@ -11,8 +11,12 @@ def search(inn):
 	for item in data["titles"]:
 		id = item["id"]
 		title = item["primaryTitle"]
+		data2 = requests.get(f"https://api.imdbapi.dev/titles/{id}/images")
+		data2 = ["images"][0]["url"]
+
+		
 		st.html(f"""
-<img onclick="https://vidlink.pro/movie/{id}" src="https://api.imdbapi.dev/titles/{id}/images">{title}</img>
+<img onclick="https://vidlink.pro/movie/{id}" src="{data2}">{title}</img>
   		(""")
 
 
