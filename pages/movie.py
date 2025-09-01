@@ -1,10 +1,31 @@
-import streamlit as st                                         #https://google.com/search?q=text
+import streamlit as st            
+import json
+import pandas as pd
+import requests
+
+def search(inn):
+	inn = inn.replace(" ", "+")
+	json_data = requests.get(f"https://api.imdbapi.dev/search/titles?query={inn}")
+	data = json.loads(json_data)
+	for item in data["titles"]:
+		id = item["id"]
+		title = item["]
+		st.html(f"""
+<img onclick="https://vidlink.pro/movie/{id}" src="https://api.imdbapi.dev/titles/{id}/images">{title}</img>
+  		(""")
+
+
+
+
+
+
+
 st.title("Movie Finder")
 with st.form("da-form"):
-	movie = st.text_input("IMDb/TMDB id","The hunger Games")
-	st.caption("Enter To Save")
-	movie = movie.replace(" ", "+") # url encodinggggg i think
+	movie = st.text_input("Movie Title","The hunger Games")
 	
-	submitted = st.form_submit_button("⬇️")	
-	if submitted:  
-		st.link_button('Continue', f'https://vidlink.pro/movie/{movie}')
+	submitted = st.form_submit_button("Search")	
+	if submitted:
+		search(movie)
+
+
