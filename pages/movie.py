@@ -12,6 +12,7 @@ def search(inn):
 		id = item["id"]
 		title = item["primaryTitle"]
 		data2 = requests.get(f"https://api.imdbapi.dev/titles/{id}/images")
+		data2 = json.loads(data2)
 		data2 = ["images"][0]["url"]
 
 		
