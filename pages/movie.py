@@ -9,7 +9,7 @@ def search(inn):
 	data = json.loads(json_data)
 	for item in data["titles"]:
 		id = item["id"]
-		title = item["]
+		title = item["title"]
 		st.html(f"""
 <img onclick="https://vidlink.pro/movie/{id}" src="https://api.imdbapi.dev/titles/{id}/images">{title}</img>
   		(""")
